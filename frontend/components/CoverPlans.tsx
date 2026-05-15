@@ -179,8 +179,14 @@ function PlanCard({
       <button
         onClick={() => onBuy(planId, plan[2])}
         disabled={selected}
-        className="w-full py-2.5 bg-sky-600 text-white rounded-xl text-sm font-medium disabled:opacity-50"
+        className="w-full py-2.5 bg-sky-600 text-white rounded-xl text-sm font-medium disabled:opacity-50 flex items-center justify-center gap-2"
       >
+        {selected && (
+          <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+          </svg>
+        )}
         {selected ? "Processing..." : `Cover for ${total.toFixed(2)} cUSD`}
       </button>
     </div>

@@ -179,6 +179,9 @@ contract CoverChain is Ownable, ReentrancyGuard {
         emit ClaimSubmitted(claimId, policyId, msg.sender);
     }
 
+    /// @notice Cast a vote on a pending claim (validators only)
+    /// @param claimId ID of the claim to vote on
+    /// @param approve True to approve the claim, false to reject
     function voteOnClaim(uint256 claimId, bool approve) external {
         require(isValidator[msg.sender], "Not a validator");
         require(!hasVoted[claimId][msg.sender], "Already voted");

@@ -278,6 +278,7 @@ contract CoverChain is Ownable, ReentrancyGuard {
         emit ParametricPayout(policyId, plan.maxPayout);
     }
 
+    /// @notice Stake 10 cUSD to become a validator and vote on claims
     function stakeAsValidator() external nonReentrant {
         require(!isValidator[msg.sender], "Already validator");
         require(cUSD.transferFrom(msg.sender, address(this), VALIDATOR_STAKE), "Stake failed");
@@ -287,6 +288,7 @@ contract CoverChain is Ownable, ReentrancyGuard {
         emit ValidatorJoined(msg.sender);
     }
 
+    /// @notice Withdraw validator stake and exit the validator set
     function unstakeValidator() external nonReentrant {
         require(isValidator[msg.sender], "Not a validator");
         uint256 stake = validatorStake[msg.sender];

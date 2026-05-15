@@ -67,9 +67,12 @@ export default function ValidatorPanel() {
       <div className="bg-white rounded-2xl p-4 shadow-sm space-y-3">
         <p className="font-semibold text-gray-800">Become a Validator</p>
         <p className="text-xs text-gray-500">
-          Stake 10 cUSD to vote on insurance claims. Earn 1% of approved claim payouts.
-          Your stake is returned when you leave.
+          Stake 10 cUSD to vote on insurance claims. Earn 1% of each approved claim payout.
+          Your stake is returned in full when you choose to leave.
         </p>
+        <div className="bg-amber-50 border border-amber-100 rounded-xl p-3 text-xs text-amber-700">
+          Validators are responsible for honest voting. Majority vote determines payout.
+        </div>
 
         {!isValidator ? (
           <button

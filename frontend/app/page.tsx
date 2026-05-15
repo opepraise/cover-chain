@@ -62,6 +62,10 @@ export default function Home() {
       {activeTab === "policies" && <MyPolicies />}
       {activeTab === "claims" && <ClaimsView />}
       {activeTab === "validator" && <ValidatorPanel />}
+
+      <footer className="mt-8 text-center">
+        <p className="text-xs text-gray-300">CoverChain &copy; {new Date().getFullYear()} · Built on Celo</p>
+      </footer>
     </div>
   );
 }

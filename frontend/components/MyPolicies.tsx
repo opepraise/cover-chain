@@ -37,6 +37,10 @@ export default function MyPolicies() {
 
   return (
     <div className="space-y-4">
+      <div className="flex items-center justify-between">
+        <p className="font-semibold text-gray-800 text-sm">Your Policies</p>
+        <span className="text-xs text-gray-400">{policyIds.length} active</span>
+      </div>
       {policyIds.map((id) => (
         <PolicyCard key={id.toString()} policyId={id} contractAddress={contractAddress} chainId={chainId} />
       ))}

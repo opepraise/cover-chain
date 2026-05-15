@@ -63,8 +63,9 @@ export default function Home() {
       {activeTab === "claims" && <ClaimsView />}
       {activeTab === "validator" && <ValidatorPanel />}
 
-      <footer className="mt-8 text-center">
+      <footer className="mt-8 pb-4 safe-bottom text-center space-y-1">
         <p className="text-xs text-gray-300">CoverChain &copy; {new Date().getFullYear()} · Built on Celo</p>
+        <p className="text-xs text-gray-200">Open-source micro-insurance — no bank required.</p>
       </footer>
     </div>
   );

@@ -15,8 +15,14 @@ export default function Home() {
 
   if (!isConnected) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-gray-400 text-sm">Opening in MiniPay...</p>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-3 px-6 text-center">
+        <div className="w-16 h-16 rounded-full bg-sky-100 flex items-center justify-center">
+          <svg className="w-8 h-8 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+        <p className="text-gray-700 font-semibold">Opening in MiniPay...</p>
+        <p className="text-gray-400 text-xs">Please open this app inside the MiniPay wallet.</p>
       </div>
     );
   }

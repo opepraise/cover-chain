@@ -82,7 +82,9 @@ export default function ValidatorPanel() {
           <div className="space-y-2">
             <div className="bg-sky-50 rounded-xl p-3 text-center">
               <p className="text-sky-700 font-medium text-sm">You are an active validator</p>
-              <p className="text-xs text-sky-600">Vote on pending claims from My Policies</p>
+              <p className="text-xs text-sky-600 mt-0.5">
+                You earn 1% of every claim you help approve.
+              </p>
             </div>
             <button
               onClick={() => unstake({ address: contractAddress, abi: COVER_CHAIN_ABI, functionName: "unstakeValidator" })}

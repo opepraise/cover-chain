@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { useChainId, useReadContract, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import { formatUnits, parseUnits } from "viem";
+import { formatUnits } from "viem";
 import { COVER_CHAIN_ADDRESS, COVER_CHAIN_ABI, ERC20_ABI, CUSD_ADDRESS } from "@/lib/contracts";
+import { formatCUSD } from "@/lib/utils";
 
 const PLAN_ICONS = ["📱", "💊", "🌾"];
 const PLAN_DESCRIPTIONS = [

@@ -4,7 +4,7 @@ export const CUSD_ADDRESS = {
 } as const;
 
 export const COVER_CHAIN_ADDRESS = {
-  42220: "" as `0x${string}`,
+  42220: "0x7208A100F67eeA5414168fAF7df5feCc817AB070" as `0x${string}`,
   44787: "" as `0x${string}`,
 } as const;
 

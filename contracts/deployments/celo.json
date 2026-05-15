@@ -1,0 +1,9 @@
+{
+  "network": "celo",
+  "address": "0x7208A100F67eeA5414168fAF7df5feCc817AB070",
+  "cUSD": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+  "deployer": "0xf083BdCA197c4c96736cdD69fC6357EB107506C7",
+  "txHash": "0x4e638e8202288368e1f58f5eb74c608041d13c69e97ae682dd03b3c6131cee95",
+  "blockNumber": 66975789,
+  "timestamp": "2026-05-15T21:11:00.000Z"
+}

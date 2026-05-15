@@ -3,6 +3,7 @@
 import { useAccount, useChainId, useReadContract, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import { formatUnits, parseUnits } from "viem";
 import { COVER_CHAIN_ADDRESS, COVER_CHAIN_ABI, ERC20_ABI, CUSD_ADDRESS } from "@/lib/contracts";
+import { formatDate, daysUntil, isExpiringSoon } from "@/lib/utils";
 import { useState } from "react";
 
 const COVER_LABELS = ["Device", "Medical", "Weather"];

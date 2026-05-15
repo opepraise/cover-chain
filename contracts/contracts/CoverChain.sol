@@ -81,6 +81,7 @@ contract CoverChain is Ownable, ReentrancyGuard {
     event ValidatorJoined(address indexed validator);
     event ValidatorLeft(address indexed validator);
 
+    /// @param _cUSD Address of the cUSD ERC-20 token on the target network
     constructor(address _cUSD) Ownable(msg.sender) {
         cUSD = IERC20(_cUSD);
         _createDefaultPlans();

@@ -142,6 +142,11 @@ contract CoverChain is Ownable, ReentrancyGuard {
         emit PremiumPaid(policyId, amount);
     }
 
+    /// @notice Submit a claim against an active non-weather policy
+    /// @param policyId ID of the policy to claim against
+    /// @param evidence IPFS hash or plain-text description of the incident
+    /// @param requestedAmount Amount of cUSD requested (must be ≤ plan maxPayout)
+    /// @return claimId The ID of the newly created claim
     function submitClaim(
         uint256 policyId,
         string calldata evidence,

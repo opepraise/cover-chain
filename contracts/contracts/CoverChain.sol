@@ -96,6 +96,10 @@ contract CoverChain is Ownable, ReentrancyGuard {
         plans[_planCounter++] = Plan(CoverType.WEATHER, "Farm Weather Cover", 1e18, 200e18, true);
     }
 
+    /// @notice Purchase a new insurance policy for 1–12 months
+    /// @param planId ID of the plan to purchase
+    /// @param durationMonths Number of months (1–12) to cover
+    /// @return policyId The ID of the newly created policy
     function purchasePolicy(uint256 planId, uint256 durationMonths) external nonReentrant returns (uint256 policyId) {
         require(plans[planId].active, "Plan inactive");
         require(durationMonths >= 1 && durationMonths <= 12, "Invalid duration");

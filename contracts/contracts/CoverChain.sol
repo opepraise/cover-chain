@@ -229,6 +229,22 @@ contract CoverChain is Ownable, ReentrancyGuard {
         }
     }
 
+    function addPlan(
+        CoverType coverType,
+        string calldata name,
+        uint256 monthlyPremium,
+        uint256 maxPayout
+    ) external onlyOwner returns (uint256 planId) {
+        planId = _planCounter++;
+        plans[planId] = Plan(coverType, name, monthlyPremium, maxPayout, true);
+        emit PlanCreated(planId, name, monthlyPremium, maxPayout);
+    }
+
+    function deactivatePlan(uint256 planId) external onlyOwner {
+        require(plans[planId].active, "Already inactive");
+        plans[planId].active = false;
+    }
+
     // Owner/oracle triggers automatic payout for weather policies
     function triggerParametricPayout(uint256 policyId) external onlyOwner nonReentrant {
         Policy storage policy = policies[policyId];

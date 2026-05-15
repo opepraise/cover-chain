@@ -5,9 +5,11 @@ Parametric micro-insurance mini app for MiniPay. Protect your phone, health, and
 ## Plans (deployed on contract creation)
 | Plan | Premium | Max Payout | Claim Type |
 |------|---------|------------|------------|
-| Device Cover | 0.50 cUSD/mo | 50 cUSD | Community vote |
-| Medical Cover | 0.80 cUSD/mo | 100 cUSD | Community vote |
-| Farm Weather Cover | 1.00 cUSD/mo | 200 cUSD | Auto-trigger (oracle) |
+| Device Cover | 0.001 cUSD/mo | 0.1 cUSD | Community vote |
+| Medical Cover | 0.002 cUSD/mo | 0.2 cUSD | Community vote |
+| Farm Weather Cover | 0.003 cUSD/mo | 0.5 cUSD | Auto-trigger (oracle) |
+
+> Amounts are kept tiny so anyone with a few cents of testnet cUSD can interact with the app.
 
 ## Features
 - Buy 1–12 month policies in cUSD

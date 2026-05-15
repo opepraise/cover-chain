@@ -149,6 +149,41 @@ export const COVER_CHAIN_ABI = [
     outputs: [{ name: "", type: "uint256" }],
   },
   {
+    name: "triggerParametricPayout",
+    type: "function",
+    stateMutability: "nonpayable",
+    inputs: [{ name: "policyId", type: "uint256" }],
+    outputs: [],
+  },
+  {
+    name: "getValidators",
+    type: "function",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "address[]" }],
+  },
+  {
+    name: "hasVoted",
+    type: "function",
+    stateMutability: "view",
+    inputs: [{ name: "claimId", type: "uint256" }, { name: "validator", type: "address" }],
+    outputs: [{ name: "", type: "bool" }],
+  },
+  {
+    name: "validatorStake",
+    type: "function",
+    stateMutability: "view",
+    inputs: [{ name: "validator", type: "address" }],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    name: "parametricTriggered",
+    type: "function",
+    stateMutability: "view",
+    inputs: [{ name: "policyId", type: "uint256" }],
+    outputs: [{ name: "", type: "bool" }],
+  },
+  {
     name: "PolicyPurchased",
     type: "event",
     inputs: [

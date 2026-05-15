@@ -149,8 +149,11 @@ function PolicyCard({
               <input
                 value={claimAmount}
                 onChange={(e) => setClaimAmount(e.target.value)}
-                placeholder={`Amount (max ${Number(formatUnits(plan[3], 18)).toFixed(0)} cUSD)`}
+                placeholder={`Amount in cUSD (min 0.1, max ${Number(formatUnits(plan[3], 18)).toFixed(0)})`}
                 type="number"
+                min="0.1"
+                step="0.1"
+                max={Number(formatUnits(plan[3], 18)).toFixed(0)}
                 className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
               />
               <button onClick={handleClaim} className="w-full py-2.5 bg-sky-600 text-white rounded-xl text-sm font-medium">

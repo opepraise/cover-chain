@@ -159,7 +159,12 @@ function PolicyCard({
             </div>
           )}
 
-          {claimOk && <p className="text-xs text-green-600 text-center">Claim submitted — validators will review in 3 days.</p>}
+          {claimOk && (
+            <div className="bg-green-50 rounded-xl p-3 text-center">
+              <p className="text-xs text-green-700 font-medium">Claim submitted!</p>
+              <p className="text-xs text-green-600 mt-0.5">Validators will review within 3 days.</p>
+            </div>
+          )}
         </div>
       )}
 

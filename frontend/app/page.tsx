@@ -36,9 +36,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen max-w-md mx-auto px-4 pb-8">
-      <header className="pt-6 pb-4">
-        <h1 className="text-2xl font-bold text-sky-700">CoverChain</h1>
-        <p className="text-xs text-gray-400">Micro-insurance powered by Celo. No bank needed.</p>
+      <header className="pt-6 pb-4 flex items-start justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-sky-700">CoverChain</h1>
+          <p className="text-xs text-gray-400">Micro-insurance powered by Celo. No bank needed.</p>
+        </div>
+        <span className="mt-1 text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">Celo</span>
       </header>
 
       <nav className="flex bg-white rounded-xl p-1 shadow-sm mb-5 gap-1">

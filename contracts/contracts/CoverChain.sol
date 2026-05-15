@@ -43,6 +43,7 @@ contract CoverChain is Ownable, ReentrancyGuard {
     uint256 public constant VOTING_PERIOD = 3 days;
     uint256 public constant VALIDATOR_STAKE = 10e18; // 10 cUSD to become validator
     uint256 public constant VALIDATOR_REWARD_BPS = 100; // 1% of claim payout
+    uint256 public constant MIN_CLAIM_AMOUNT = 1e17; // 0.1 cUSD minimum claim
 
     uint256 private _planCounter;
     uint256 private _policyCounter;
@@ -147,6 +148,7 @@ contract CoverChain is Ownable, ReentrancyGuard {
 
         Plan storage plan = plans[policy.planId];
         require(plan.coverType != CoverType.WEATHER, "Use parametric trigger");
+        require(requestedAmount >= MIN_CLAIM_AMOUNT, "Below minimum claim");
         require(requestedAmount <= plan.maxPayout, "Exceeds max payout");
         require(requestedAmount <= riskPool, "Pool insufficient");
 

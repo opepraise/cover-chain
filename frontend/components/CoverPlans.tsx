@@ -52,7 +52,11 @@ export default function CoverPlans() {
   if (purchaseOk) {
     return (
       <div className="bg-white rounded-2xl p-6 text-center shadow-sm">
-        <p className="text-3xl mb-2">✓</p>
+        <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+          <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
         <p className="font-semibold text-sky-700 text-lg">Policy activated!</p>
         <p className="text-xs text-gray-400 mt-1">View it in My Policies tab.</p>
       </div>

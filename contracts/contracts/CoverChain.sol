@@ -286,6 +286,14 @@ contract CoverChain is Ownable, ReentrancyGuard {
         return _planCounter;
     }
 
+    function getPolicyCount() external view returns (uint256) {
+        return _policyCounter;
+    }
+
+    function getClaimCount() external view returns (uint256) {
+        return _claimCounter;
+    }
+
     function getValidators() external view returns (address[] memory) {
         return validators;
     }

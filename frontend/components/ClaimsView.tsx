@@ -34,9 +34,14 @@ export default function ClaimsView() {
     );
   }
 
+  const pendingCount = claimIds.filter(() => true).length;
+
   return (
     <div className="space-y-4">
-      <h2 className="font-semibold text-gray-800">Your Claims</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="font-semibold text-gray-800">Your Claims</h2>
+        <span className="text-xs text-gray-400">{pendingCount} total</span>
+      </div>
       {claimIds.map((id) => (
         <ClaimCard key={id.toString()} claimId={id} contractAddress={contractAddress} />
       ))}

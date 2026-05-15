@@ -156,7 +156,11 @@ function PolicyCard({
                 max={Number(formatUnits(plan[3], 18)).toFixed(0)}
                 className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
               />
-              <button onClick={handleClaim} className="w-full py-2.5 bg-sky-600 text-white rounded-xl text-sm font-medium">
+              <button
+                onClick={handleClaim}
+                disabled={!claimEvidence || !claimAmount || Number(claimAmount) < 0.1}
+                className="w-full py-2.5 bg-sky-600 text-white rounded-xl text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed"
+              >
                 Submit claim
               </button>
             </div>

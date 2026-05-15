@@ -244,6 +244,7 @@ contract CoverChain is Ownable, ReentrancyGuard {
         }
     }
 
+    /// @notice Create a new insurance plan (owner only)
     function addPlan(
         CoverType coverType,
         string calldata name,
@@ -255,6 +256,7 @@ contract CoverChain is Ownable, ReentrancyGuard {
         emit PlanCreated(planId, name, monthlyPremium, maxPayout);
     }
 
+    /// @notice Deactivate a plan so no new policies can be purchased against it
     function deactivatePlan(uint256 planId) external onlyOwner {
         require(plans[planId].active, "Already inactive");
         plans[planId].active = false;

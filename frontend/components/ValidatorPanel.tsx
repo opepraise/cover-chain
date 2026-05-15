@@ -18,6 +18,12 @@ export default function ValidatorPanel() {
     args: address ? [address] : undefined,
   });
 
+  const { data: validators } = useReadContract({
+    address: contractAddress,
+    abi: COVER_CHAIN_ABI,
+    functionName: "getValidators",
+  });
+
   const { data: stakeAmount } = useReadContract({
     address: contractAddress,
     abi: COVER_CHAIN_ABI,
@@ -49,9 +55,13 @@ export default function ValidatorPanel() {
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <p className="font-semibold text-gray-800 mb-3">Risk Pool</p>
         <p className="text-2xl font-bold text-sky-700">
-          {riskPool ? Number(formatUnits(riskPool, 18)).toFixed(2) : "0"} cUSD
+          {riskPool ? formatCUSD(riskPool) : "0.00"} cUSD
         </p>
         <p className="text-xs text-gray-400 mt-1">Funds available for claim payouts</p>
+        <div className="mt-3 pt-3 border-t border-gray-100 flex justify-between text-xs text-gray-500">
+          <span>Active validators</span>
+          <span className="font-semibold text-gray-700">{validators?.length ?? 0}</span>
+        </div>
       </div>
 
       <div className="bg-white rounded-2xl p-4 shadow-sm space-y-3">

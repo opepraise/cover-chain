@@ -3,6 +3,7 @@
 import { useAccount, useChainId, useReadContract } from "wagmi";
 import { formatUnits } from "viem";
 import { COVER_CHAIN_ADDRESS, COVER_CHAIN_ABI } from "@/lib/contracts";
+import { formatDate } from "@/lib/utils";
 
 const CLAIM_STATUS = ["Pending", "Approved", "Rejected", "Paid"];
 const STATUS_COLORS = ["text-yellow-600", "text-blue-600", "text-red-500", "text-green-600"];

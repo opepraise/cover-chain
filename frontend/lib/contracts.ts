@@ -1,0 +1,167 @@
+export const CUSD_ADDRESS = {
+  42220: "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+  44787: "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1",
+} as const;
+
+export const COVER_CHAIN_ADDRESS = {
+  42220: "" as `0x${string}`,
+  44787: "" as `0x${string}`,
+} as const;
+
+export const COVER_CHAIN_ABI = [
+  {
+    name: "purchasePolicy",
+    type: "function",
+    stateMutability: "nonpayable",
+    inputs: [{ name: "planId", type: "uint256" }, { name: "durationMonths", type: "uint256" }],
+    outputs: [{ name: "policyId", type: "uint256" }],
+  },
+  {
+    name: "payPremium",
+    type: "function",
+    stateMutability: "nonpayable",
+    inputs: [{ name: "policyId", type: "uint256" }],
+    outputs: [],
+  },
+  {
+    name: "submitClaim",
+    type: "function",
+    stateMutability: "nonpayable",
+    inputs: [
+      { name: "policyId", type: "uint256" },
+      { name: "evidence", type: "string" },
+      { name: "requestedAmount", type: "uint256" },
+    ],
+    outputs: [{ name: "claimId", type: "uint256" }],
+  },
+  {
+    name: "voteOnClaim",
+    type: "function",
+    stateMutability: "nonpayable",
+    inputs: [{ name: "claimId", type: "uint256" }, { name: "approve", type: "bool" }],
+    outputs: [],
+  },
+  {
+    name: "stakeAsValidator",
+    type: "function",
+    stateMutability: "nonpayable",
+    inputs: [],
+    outputs: [],
+  },
+  {
+    name: "unstakeValidator",
+    type: "function",
+    stateMutability: "nonpayable",
+    inputs: [],
+    outputs: [],
+  },
+  {
+    name: "finalizeExpiredClaim",
+    type: "function",
+    stateMutability: "nonpayable",
+    inputs: [{ name: "claimId", type: "uint256" }],
+    outputs: [],
+  },
+  {
+    name: "plans",
+    type: "function",
+    stateMutability: "view",
+    inputs: [{ name: "", type: "uint256" }],
+    outputs: [
+      { name: "coverType", type: "uint8" },
+      { name: "name", type: "string" },
+      { name: "monthlyPremium", type: "uint256" },
+      { name: "maxPayout", type: "uint256" },
+      { name: "active", type: "bool" },
+    ],
+  },
+  {
+    name: "policies",
+    type: "function",
+    stateMutability: "view",
+    inputs: [{ name: "", type: "uint256" }],
+    outputs: [
+      { name: "holder", type: "address" },
+      { name: "planId", type: "uint256" },
+      { name: "startDate", type: "uint256" },
+      { name: "endDate", type: "uint256" },
+      { name: "premiumPaid", type: "uint256" },
+      { name: "active", type: "bool" },
+    ],
+  },
+  {
+    name: "claims",
+    type: "function",
+    stateMutability: "view",
+    inputs: [{ name: "", type: "uint256" }],
+    outputs: [
+      { name: "policyId", type: "uint256" },
+      { name: "claimant", type: "address" },
+      { name: "evidence", type: "string" },
+      { name: "requestedAmount", type: "uint256" },
+      { name: "status", type: "uint8" },
+      { name: "submittedAt", type: "uint256" },
+      { name: "approvalVotes", type: "uint256" },
+      { name: "rejectionVotes", type: "uint256" },
+      { name: "paid", type: "bool" },
+    ],
+  },
+  {
+    name: "getUserPolicies",
+    type: "function",
+    stateMutability: "view",
+    inputs: [{ name: "user", type: "address" }],
+    outputs: [{ name: "", type: "uint256[]" }],
+  },
+  {
+    name: "getUserClaims",
+    type: "function",
+    stateMutability: "view",
+    inputs: [{ name: "user", type: "address" }],
+    outputs: [{ name: "", type: "uint256[]" }],
+  },
+  {
+    name: "getPlanCount",
+    type: "function",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    name: "riskPool",
+    type: "function",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    name: "isValidator",
+    type: "function",
+    stateMutability: "view",
+    inputs: [{ name: "", type: "address" }],
+    outputs: [{ name: "", type: "bool" }],
+  },
+  {
+    name: "VALIDATOR_STAKE",
+    type: "function",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    name: "PolicyPurchased",
+    type: "event",
+    inputs: [
+      { name: "policyId", type: "uint256", indexed: true },
+      { name: "holder", type: "address", indexed: true },
+      { name: "planId", type: "uint256", indexed: false },
+      { name: "endDate", type: "uint256", indexed: false },
+    ],
+  },
+] as const;
+
+export const ERC20_ABI = [
+  { name: "approve", type: "function", stateMutability: "nonpayable", inputs: [{ name: "spender", type: "address" }, { name: "amount", type: "uint256" }], outputs: [{ name: "", type: "bool" }] },
+  { name: "allowance", type: "function", stateMutability: "view", inputs: [{ name: "owner", type: "address" }, { name: "spender", type: "address" }], outputs: [{ name: "", type: "uint256" }] },
+  { name: "balanceOf", type: "function", stateMutability: "view", inputs: [{ name: "account", type: "address" }], outputs: [{ name: "", type: "uint256" }] },
+] as const;

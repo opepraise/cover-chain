@@ -146,13 +146,20 @@ function PlanCard({
   const maxPayout = Number(formatUnits(plan[3], 18)).toFixed(0);
   const total = Number(premium) * months;
   const isWeather = plan[0] === 2;
+  const coverLabels = ["Device", "Medical", "Weather"];
+  const coverColors = ["bg-blue-100 text-blue-700", "bg-pink-100 text-pink-700", "bg-green-100 text-green-700"];
 
   return (
     <div className="bg-white rounded-2xl p-4 shadow-sm">
       <div className="flex items-start gap-3 mb-3">
         <span className="text-3xl">{icon}</span>
         <div className="flex-1">
-          <p className="font-semibold text-gray-800">{plan[1]}</p>
+          <div className="flex items-center gap-2">
+            <p className="font-semibold text-gray-800">{plan[1]}</p>
+            <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${coverColors[Number(plan[0])]}`}>
+              {coverLabels[Number(plan[0])]}
+            </span>
+          </div>
           <p className="text-xs text-gray-400 mt-0.5">{description}</p>
         </div>
       </div>

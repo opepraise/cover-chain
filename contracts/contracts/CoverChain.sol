@@ -45,9 +45,9 @@ contract CoverChain is Ownable, ReentrancyGuard {
     }
 
     uint256 public constant VOTING_PERIOD = 3 days;
-    uint256 public constant VALIDATOR_STAKE = 1e16;  // 0.01 cUSD to become validator
+    uint256 public constant VALIDATOR_STAKE = 1e14;  // 0.0001 cUSD to become validator
     uint256 public constant VALIDATOR_REWARD_BPS = 100; // 1% of claim payout
-    uint256 public constant MIN_CLAIM_AMOUNT = 1e14; // 0.0001 cUSD minimum claim
+    uint256 public constant MIN_CLAIM_AMOUNT = 1e12; // 0.000001 cUSD minimum claim
 
     uint256 private _planCounter;
     uint256 private _policyCounter;
@@ -92,12 +92,12 @@ contract CoverChain is Ownable, ReentrancyGuard {
     }
 
     function _createDefaultPlans() internal {
-        // Device insurance: 0.001 cUSD/month, max 0.1 cUSD payout
-        plans[_planCounter++] = Plan(CoverType.DEVICE, "Device Cover", 1e15, 1e17, true);
-        // Medical micro-insurance: 0.002 cUSD/month, max 0.2 cUSD payout
-        plans[_planCounter++] = Plan(CoverType.MEDICAL, "Medical Cover", 2e15, 2e17, true);
-        // Weather parametric: 0.003 cUSD/month, max 0.5 cUSD payout (auto-triggered)
-        plans[_planCounter++] = Plan(CoverType.WEATHER, "Farm Weather Cover", 3e15, 5e17, true);
+        // Device insurance: 0.00001 cUSD/month, max 0.0001 cUSD payout
+        plans[_planCounter++] = Plan(CoverType.DEVICE, "Device Cover", 1e13, 1e14, true);
+        // Medical micro-insurance: 0.00002 cUSD/month, max 0.0002 cUSD payout
+        plans[_planCounter++] = Plan(CoverType.MEDICAL, "Medical Cover", 2e13, 2e14, true);
+        // Weather parametric: 0.00003 cUSD/month, max 0.0005 cUSD payout (auto-triggered)
+        plans[_planCounter++] = Plan(CoverType.WEATHER, "Farm Weather Cover", 3e13, 5e14, true);
     }
 
     /// @notice Purchase a new insurance policy for 1–12 months

@@ -70,9 +70,20 @@ function ClaimCard({ claimId, contractAddress }: { claimId: bigint; contractAddr
       <p className="text-xs text-gray-500 mb-1">Amount: {amount} cUSD</p>
       <p className="text-xs text-gray-400 mb-1">Submitted: {date}</p>
       {status === 0 && (
-        <p className="text-xs text-gray-400">
-          Voting closes: {votingDeadline} · Votes: {claim[6].toString()} approve / {claim[7].toString()} reject
-        </p>
+        <div className="mt-2 space-y-1">
+          <div className="flex justify-between text-xs text-gray-400">
+            <span>Voting closes: {votingDeadline}</span>
+            <span>{claim[6].toString()} approve · {claim[7].toString()} reject</span>
+          </div>
+          {(Number(claim[6]) + Number(claim[7])) > 0 && (
+            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-green-400 rounded-full"
+                style={{ width: `${(Number(claim[6]) / (Number(claim[6]) + Number(claim[7]))) * 100}%` }}
+              />
+            </div>
+          )}
+        </div>
       )}
       {claim[2] && (
         <p className="text-xs text-gray-400 mt-1 italic">"{claim[2]}"</p>

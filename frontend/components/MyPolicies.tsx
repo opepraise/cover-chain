@@ -102,7 +102,12 @@ function PolicyCard({
             <span className="text-2xl">{COVER_ICONS[Number(plan[0])]}</span>
             <div>
               <p className="font-semibold text-gray-800">{plan[1]}</p>
-              <p className="text-xs text-gray-400">Expires {endDate}</p>
+              <p className="text-xs text-gray-400">
+                Expires {formatDate(policy[3])}
+                {isExpiringSoon(policy[3]) && (
+                  <span className="ml-1 text-orange-500 font-medium">· {daysUntil(policy[3])}d left</span>
+                )}
+              </p>
             </div>
           </div>
           <span
